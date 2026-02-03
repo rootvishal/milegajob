@@ -1,0 +1,85 @@
+[{
+        "id": 1,
+        "name": "Internshala",
+        "category": "Internships",
+        "url": "https://internshala.com",
+        "description": "India's leading platform for internships and early-career training."
+    },
+    {
+        "id": 2,
+        "name": "Naukri.com",
+        "category": "Experienced",
+        "url": "https://www.naukri.com",
+        "description": "India's largest and most trusted job portal for professional and corporate roles."
+    },
+    {
+        "id": 3,
+        "name": "Freshersworld",
+        "category": "Freshers",
+        "url": "https://www.freshersworld.com",
+        "description": "Exclusively focused on entry-level hiring and campus recruitment updates."
+    },
+    {
+        "id": 4,
+        "name": "LinkedIn Jobs",
+        "category": "Experienced",
+        "url": "https://www.linkedin.com/jobs",
+        "description": "Combines professional networking with global and high-end corporate job opportunities."
+    },
+    {
+        "id": 5,
+        "name": "Indeed India",
+        "category": "Freshers",
+        "url": "https://in.indeed.com",
+        "description": "A comprehensive job aggregator that pulls listings from all across the web."
+    },
+    {
+        "id": 6,
+        "name": "National Career Service (NCS)",
+        "category": "Government",
+        "url": "https://www.ncs.gov.in",
+        "description": "The official government portal providing a variety of job-related services and schemes."
+    },
+    {
+        "id": 7,
+        "name": "Unstop",
+        "category": "Freshers",
+        "url": "https://unstop.com",
+        "description": "Focuses on hiring through competitions, hackathons, and corporate challenges."
+    },
+    {
+        "id": 8,
+        "name": "foundit (Monster)",
+        "category": "Experienced",
+        "url": "https://www.foundit.in",
+        "description": "Uses AI-powered matching to connect experienced talent with global employers."
+    },
+    {
+        "id": 9,
+        "name": "Startup India Hub",
+        "category": "Internships",
+        "url": "https://www.startupindia.gov.in",
+        "description": "The official startup initiative portal offering unique internships and mentorship."
+    },
+    {
+        "id": 10,
+        "name": "Shine.com",
+        "category": "Freshers",
+        "url": "https://www.shine.com",
+        "description": "Focuses on skill-based hiring and entry-level professional development."
+    },
+    {
+        "id": 11,
+        "name": "Cutshort",
+        "category": "Experienced",
+        "url": "https://cutshort.io",
+        "description": "A high-tech platform designed for fast, direct hiring in the startup and IT sectors."
+    },
+    {
+        "id": 12,
+        "name": "Free Job Alert",
+        "category": "Government",
+        "url": "https://www.freejobalert.com",
+        "description": "A popular aggregator for the latest government job notifications and exam alerts."
+    }
+]
