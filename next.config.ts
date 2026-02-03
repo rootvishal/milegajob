@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   // 1. Enable Static Export
-  output: 'export',
+  
 
   // 2. Fix Image Optimization Error
   // Standard Next.js Image optimization requires a server.
