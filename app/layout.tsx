@@ -26,14 +26,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://milegajob.com'),
+  metadataBase: new URL('https://milegajob.in'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: "MilegaJob – India's Best Job Portal Directory",
     description: "Find jobs in India across 100+ job portals. Freshers, experienced, government, and remote jobs in one place.",
-    url: 'https://milegajob.com',
+    url: 'https://milegajob.in',
     siteName: 'MilegaJob',
     images: [
       {
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'your-google-site-verification-code',
+    google: 'kFku2NwzlvEOXg0U_ZCVRm29lJlRN19Kdw7nVYGU3-U',
   },
 };
 
@@ -117,14 +117,14 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "MilegaJob",
-              "url": "https://milegajob.com",
-              "logo": "https://milegajob.com/logo1.png",
+              "url": "https://milegajob.in",
+              "logo": "https://milegajob.in/logo1.png",
               "description": "India's comprehensive job portal directory helping job seekers find opportunities across 100+ platforms",
               "foundingDate": "2024",
               "contactPoint": {
                 "@type": "ContactPoint",
                 "contactType": "customer service",
-                "url": "https://milegajob.com/support"
+                "url": "https://milegajob.in/support"
               },
               "sameAs": [
                 "https://twitter.com/milegajob",
@@ -139,11 +139,11 @@ export default function RootLayout({
             {
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              "@id": "https://milegajob.com/#organization",
+              "@id": "https://milegajob.in/#organization",
               "name": "MilegaJob",
-              "url": "https://milegajob.com",
-              "logo": "https://milegajob.com/logo1.png",
-              "image": "https://milegajob.com/logo1.png",
+              "url": "https://milegajob.in",
+              "logo": "https://milegajob.in/logo1.png",
+              "image": "https://milegajob.in/logo1.png",
               "description": "Find jobs in India across freshers, experienced, government, and remote categories",
               "address": {
                 "@type": "PostalAddress",
@@ -170,7 +170,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": "MilegaJob",
-              "url": "https://milegajob.com",
+              "url": "https://milegajob.in",
               "description": "India's leading job portal directory with 100+ platforms",
               "publisher": {
                 "@type": "Organization",
@@ -178,7 +178,7 @@ export default function RootLayout({
               },
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": "https://milegajob.com/explore?search={search_term_string}",
+                "target": "https://milegajob.in/explore?search={search_term_string}",
                 "query-input": "required name=search_term_string"
               }
             }
