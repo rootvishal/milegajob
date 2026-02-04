@@ -143,7 +143,18 @@ export default function ExplorePage() {
                 {/* Header with Icon and Category Badge */}
                 <div className="bg-gradient-to-r from-blue-50 to-amber-50 p-6 border-b border-gray-100">
                   <div className="flex justify-between items-start mb-3">
-                    <div className="text-5xl">{portal.icon}</div>
+                    {portal.logo ? (
+                      <img
+                        src={portal.logo}
+                        alt={`${portal.name} logo`}
+                        className="w-16 h-16 object-contain"
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                          e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                        }}
+                      />
+                    ) : null}
+                    <div className={`text-5xl ${portal.logo ? 'hidden' : ''}`}>{portal.icon}</div>
                     <div className="flex items-center gap-2">
                       {user && (
                         <button

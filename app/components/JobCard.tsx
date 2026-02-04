@@ -12,9 +12,10 @@ interface JobCardProps {
   description: string;
   rating?: number;
   reviews?: number;
+  logo?: string;
 }
 
-export default function JobCard({ id, name, category, url, description, rating = 4.5, reviews = 128 }: JobCardProps) {
+export default function JobCard({ id, name, category, url, description, rating = 4.5, reviews = 128, logo }: JobCardProps) {
   // Calculate dates using useMemo to avoid impure function calls
   const { currentDate, validThroughDate } = useMemo(() => {
     const now = new Date();
@@ -68,7 +69,18 @@ export default function JobCard({ id, name, category, url, description, rating =
       <div className="relative h-full bg-white rounded-xl p-6 border border-gray-200 group-hover:border-transparent transition-all duration-300 shadow-md group-hover:shadow-xl">
         <div className="flex justify-between items-start mb-4">
           <div className="flex items-center gap-3 flex-1">
-            <div className="text-4xl">{getPortalLogo(name)}</div>
+            {logo ? (
+              <img
+                src={logo}
+                alt={`${name} logo`}
+                className="w-12 h-12 object-contain"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                }}
+              />
+            ) : null}
+            <div className={`text-4xl ${logo ? 'hidden' : ''}`}>{getPortalLogo(name)}</div>
             <div className="flex-1">
               <h3 className="text-lg font-bold text-gray-900 line-clamp-2">{name}</h3>
               <span className={`inline-block px-2 py-1 rounded-full text-xs font-semibold mt-1 ${getCategoryColor(category)}`}>

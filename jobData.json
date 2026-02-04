@@ -3,6 +3,7 @@
         "name": "Internshala",
         "category": "Internships",
         "url": "https://internshala.com",
+        "logo": "/logos/internshala.png",
         "description": "India's leading platform for internships and early-career training."
     },
     {
@@ -10,6 +11,7 @@
         "name": "Naukri.com",
         "category": "Experienced",
         "url": "https://www.naukri.com",
+        "logo": "/logos/naukri.com.png",
         "description": "India's largest and most trusted job portal for professional and corporate roles."
     },
     {
@@ -17,6 +19,7 @@
         "name": "Freshersworld",
         "category": "Freshers",
         "url": "https://www.freshersworld.com",
+        "logo": "/logos/freshersworld.png",
         "description": "Exclusively focused on entry-level hiring and campus recruitment updates."
     },
     {
