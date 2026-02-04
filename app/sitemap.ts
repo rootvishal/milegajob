@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { jobPortals } from '../data/jobPortals'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://milegajob.com'
+  const baseUrl = 'https://milegajob.in'
 
   // Static pages
   const staticPages = [
