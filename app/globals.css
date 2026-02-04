@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 :root {
     --background: #ffffff;
@@ -30,7 +30,7 @@
 body {
     background: var(--background);
     color: var(--foreground);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     line-height: 1.6;
 }
 
@@ -63,8 +63,8 @@ body {
 
 .btn-primary:hover {
     background-color: var(--primary-hover);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(65, 105, 225, 0.3);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(65, 105, 225, 0.4);
 }
 
 .btn-secondary {
@@ -82,6 +82,39 @@ body {
 .btn-secondary:hover {
     background-color: var(--primary);
     color: white;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(65, 105, 225, 0.2);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(65, 105, 225, 0.3);
+}
+
+
+/* Animated gradient text */
+
+.animated-gradient-text {
+    background: linear-gradient(45deg, #1e3a8a, #7c3aed, #1e3a8a);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* Animated gradient background for boxes */
+
+.animated-gradient-bg {
+    background: linear-gradient(45deg, #1e3a8a, #7c3aed, #000080);
+    background-size: 400% 400%;
+    animation: gradientShift 4s ease-in-out infinite;
 }

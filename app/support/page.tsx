@@ -117,7 +117,7 @@ export default function Support() {
               </div>
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-900 to-orange-600 text-white font-bold py-4 rounded-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
+                className="w-full bg-gradient-to-r from-blue-900 to-orange-600 text-white font-bold py-4 rounded-lg hover:shadow-2xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2"
               >
                 <Send size={20} />
                 Send Message

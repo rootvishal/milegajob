@@ -53,13 +53,13 @@ export default function Home() {
       <section className="max-w-7xl mx-auto px-8 py-24 relative">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="text-left">
-            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8 leading-tight">
+            <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 mb-8 leading-tight tracking-tight">
               Your Gateway to{' '}
-              <span className="text-primary">
+              <span className="animated-gradient-text">
                 Perfect Job Opportunities
               </span>
             </h2>
-            <p className="text-xl text-gray-600 mb-10 max-w-lg leading-relaxed">
+            <p className="text-lg md:text-xl font-normal text-gray-600 mb-10 max-w-lg leading-relaxed">
               Discover and explore India's leading job portals all in one place. Find roles tailored to your career stage, all curated for you.
             </p>
 
@@ -79,10 +79,7 @@ export default function Home() {
             </div>
           </div>
           <div className="relative">
-            <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-8 shadow-medium">
-              <div className="text-6xl mb-4">🎯</div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">Find Your Dream Job</h3>
-              <p className="text-gray-600">Connect with top employers across India</p>
+            <div className="bg-white rounded-2xl p-16 shadow-medium" style={{backgroundImage: 'url(/logo3.png)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundBlendMode: 'multiply', minHeight: '400px'}}>
             </div>
           </div>
         </div>
@@ -92,7 +89,7 @@ export default function Home() {
       <section className="max-w-7xl mx-auto px-8 py-20">
         <div className="mt-0">
           <div className="flex justify-between items-center mb-12">
-            <h3 className="text-4xl font-bold text-gray-900">Featured Job Portals</h3>
+            <h3 className="text-5xl font-bold text-gray-900 uppercase text-sm font-bold tracking-wider">Featured Job Portals</h3>
             <Link href="/explore" className="text-primary font-semibold hover:gap-2 transition-all flex items-center gap-1 hover:text-primary-hover">
               View All <ArrowRight size={18} />
             </Link>

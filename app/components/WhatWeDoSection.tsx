@@ -1,4 +1,4 @@
-import { Target, TrendingUp, Users, Briefcase } from 'lucide-react';
+import { Target, TrendingUp, Users, Briefcase, Globe, Star, Clock } from 'lucide-react';
 
 export default function WhatWeDoSection() {
   const features = [
@@ -38,14 +38,14 @@ export default function WhatWeDoSection() {
           {features.map((feature, idx) => {
             const Icon = feature.icon;
             return (
-              <div key={idx} className="bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-orange-200">
+              <div key={idx} className="animated-gradient-bg rounded-xl p-8 shadow-md hover:shadow-2xl hover:scale-110 transition-all duration-300 border border-gray-100">
                 <div className="flex items-start gap-4">
-                  <div className="w-14 h-14 rounded-lg bg-gradient-to-r from-blue-100 to-orange-100 flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-7 h-7 text-orange-600" />
+                  <div className="w-14 h-14 rounded-lg bg-white flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-7 h-7 text-black" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
-                    <p className="text-gray-600">{feature.description}</p>
+                    <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>
+                    <p className="text-white text-opacity-90">{feature.description}</p>
                   </div>
                 </div>
               </div>
@@ -56,16 +56,22 @@ export default function WhatWeDoSection() {
         {/* Statistics */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12">
           {[
-            { number: '200+', label: 'Job Portals' },
-            { number: '50K+', label: 'Active Users' },
-            { number: '4.8', label: 'Avg Rating' },
-            { number: '24/7', label: 'Support' }
-          ].map((stat, idx) => (
-            <div key={idx} className="bg-gradient-to-br from-blue-900 to-orange-600 rounded-xl p-8 text-white text-center shadow-lg">
-              <div className="text-4xl font-bold mb-2">{stat.number}</div>
-              <div className="text-orange-100">{stat.label}</div>
-            </div>
-          ))}
+            { number: '200+', label: 'Job Portals', icon: Globe },
+            { number: '50K+', label: 'Active Users', icon: Users },
+            { number: '4.8', label: 'Avg Rating', icon: Star },
+            { number: '24/7', label: 'Support', icon: Clock }
+          ].map((stat, idx) => {
+            const Icon = stat.icon;
+            return (
+              <div key={idx} className="animated-gradient-bg rounded-xl p-8 text-white text-center shadow-lg hover:shadow-2xl hover:scale-110 transition-all duration-300">
+                <div className="w-14 h-14 rounded-lg bg-white flex items-center justify-center mx-auto mb-4">
+                  <Icon className="w-7 h-7 text-black" />
+                </div>
+                <div className="text-4xl font-bold mb-2">{stat.number}</div>
+                <div className="text-white text-opacity-90">{stat.label}</div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
