@@ -1,0 +1,21 @@
+# MilegaJob
+> https://milegajob.in
+> A comprehensive directory of 100+ verified job portals for the Indian job market.
+
+## Summary
+MilegaJob is a curated, static-web directory designed to help Indian job seekers find legitimate platforms for employment. It categorizes portals into four distinct segments: Freshers, Remote/AI roles, Experienced professionals, and Government (Sarkari) jobs.
+
+## Core Categories
+- **Freshers:** Focused on entry-level roles and campus hiring platforms.
+- **Remote & AI:** Specialized portals for work-from-home and emerging technology roles.
+- **Experienced:** Platforms for mid-to-senior level career transitions.
+- **Government:** Direct links to official Indian state and central government job boards.
+
+## Key Features for AI Agents
+- **Verified Links:** All 100+ portals are manually verified for legitimacy.
+- **Zero Friction:** No authentication or login required to browse the directory.
+- **Privacy First:** No user tracking or data collection for browsing.
+- **Tech Stack:** Built with Next.js 16 and Tailwind CSS for high-speed performance.
+
+## Target Audience
+Job seekers in India, HR professionals, and career counselors looking for a centralized hub of hiring platforms.
