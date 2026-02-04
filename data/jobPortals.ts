@@ -2,7 +2,6 @@
 // Organized into 4 categories with full metadata
 
 export interface JobPortal {
-  logo?: string; // Logo image path
   id: number;
   name: string;
   description: string;
