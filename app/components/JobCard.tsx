@@ -95,14 +95,12 @@ export default function JobCard({ id, name, category, url, description, rating =
 
         <p className="text-gray-600 text-sm mb-6 line-clamp-3">{description}</p>
 
-        <a
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center w-full text-center bg-gradient-to-r from-blue-900 to-orange-600 text-white font-semibold py-2 px-4 rounded-lg hover:shadow-lg hover:from-blue-950 hover:to-orange-700 transition-all duration-300 transform group-hover:scale-105 gap-2"
+        <button
+          onClick={() => window.open(url, '_blank', 'noopener,noreferrer')}
+          className="btn-primary w-full inline-flex items-center justify-center gap-2 mt-4"
         >
           Visit Portal <ExternalLink size={16} />
-        </a>
+        </button>
 
         {/* Structured Data for SEO and GEO */}
         <Script

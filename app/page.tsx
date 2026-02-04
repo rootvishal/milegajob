@@ -47,56 +47,62 @@ export default function Home() {
   ).slice(0, 6);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-blue-50 to-amber-50">
+    <div className="min-h-screen bg-white">
 
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-6 py-20 relative bg-cover bg-center bg-no-repeat rounded-lg overflow-hidden" style={{backgroundImage: "url('/baground.png')"}}>
-        <div className="absolute inset-0 bg-white/0"></div>
-        <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
+      <section className="max-w-7xl mx-auto px-8 py-24 relative">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="text-left">
-            <h2 className="text-5xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8 leading-tight">
               Your Gateway to{' '}
-              <span className="bg-gradient-to-r from-blue-900 to-orange-600 bg-clip-text text-transparent">
+              <span className="text-primary">
                 Perfect Job Opportunities
               </span>
             </h2>
-            <p className="text-lg text-gray-700 mb-8 max-w-lg">
+            <p className="text-xl text-gray-600 mb-10 max-w-lg leading-relaxed">
               Discover and explore India's leading job portals all in one place. Find roles tailored to your career stage, all curated for you.
             </p>
 
             {/* Hero CTA Button with Search */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-6">
               <Link
                 href="/explore"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-900 to-orange-600 text-white font-bold rounded-lg hover:shadow-2xl transition-all duration-300 text-lg transform hover:scale-105"
+                className="btn-primary inline-flex items-center gap-3 text-lg px-8 py-4"
               >
                 <Search size={20} />
                 Search & Explore Jobs
                 <ArrowRight size={20} />
               </Link>
+              <button className="btn-secondary">
+                Learn More
+              </button>
             </div>
           </div>
-          <div>
-            {/* Background image shows girl on right */}
+          <div className="relative">
+            <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-8 shadow-medium">
+              <div className="text-6xl mb-4">🎯</div>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-4">Find Your Dream Job</h3>
+              <p className="text-gray-600">Connect with top employers across India</p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Featured Portals Preview */}
-      <section className="max-w-7xl mx-auto px-6 py-16">
+      <section className="max-w-7xl mx-auto px-8 py-20">
         <div className="mt-0">
-          <div className="flex justify-between items-center mb-8">
-            <h3 className="text-3xl font-bold text-gray-900">Featured Job Portals</h3>
-            <Link href="/explore" className="text-blue-900 font-semibold hover:gap-2 transition-all flex items-center gap-1 hover:text-orange-600">
+          <div className="flex justify-between items-center mb-12">
+            <h3 className="text-4xl font-bold text-gray-900">Featured Job Portals</h3>
+            <Link href="/explore" className="text-primary font-semibold hover:gap-2 transition-all flex items-center gap-1 hover:text-primary-hover">
               View All <ArrowRight size={18} />
             </Link>
           </div>
 
           {/* Filter System */}
-          <div className="mb-8 flex flex-col md:flex-row gap-4 items-center justify-between">
+          <div className="mb-12 flex flex-col md:flex-row gap-6 items-center justify-between">
             <div className="flex-1">
-              <FilterButtons 
-                categories={categories} 
+              <FilterButtons
+                categories={categories}
                 activeFilter={activeFilter}
                 onFilterChange={setActiveFilter}
               />
@@ -107,14 +113,14 @@ export default function Home() {
                 placeholder="Search job portals..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-4 py-3 pl-11 text-black border border-gray-300 rounded-lg placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-900 focus:border-transparent"
+                className="w-full px-4 py-3 pl-11 text-black border border-gray-300 rounded-lg placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
               />
               <Search size={20} className="absolute left-3 top-3.5 text-gray-400" />
             </div>
           </div>
 
           {/* Job Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredJobs.map(job => (
               <JobCard key={job.id} {...job} />
             ))}
@@ -138,15 +144,15 @@ export default function Home() {
       </div>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-orange-600 text-white py-16">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Find Your Next Opportunity?</h2>
-          <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
+      <section className="bg-primary text-white py-20">
+        <div className="max-w-7xl mx-auto px-8 text-center">
+          <h2 className="text-4xl font-bold mb-8">Ready to Find Your Next Opportunity?</h2>
+          <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
             Explore all job portals, filter by your preferences, and save your favorites for quick access.
           </p>
           <Link
             href="/explore"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-900 font-bold rounded-lg hover:shadow-lg transition-all text-lg"
+            className="btn-secondary inline-flex items-center gap-2 text-lg px-8 py-4"
           >
             Start Exploring <ArrowRight size={20} />
           </Link>
@@ -154,40 +160,40 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <footer className="bg-secondary text-gray-900 py-16">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             <div>
               <Link href="/">
                 <Logo />
               </Link>
-              <p className="text-gray-400 mt-4">Your one-stop solution for job seeking.</p>
+              <p className="text-gray-600 mt-6 leading-relaxed">Your one-stop solution for job seeking.</p>
             </div>
             <div>
-              <h4 className="font-bold mb-4">Quick Links</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#about" className="hover:text-white transition-colors">About Us</a></li>
-                <li><a href="#features" className="hover:text-white transition-colors">Features</a></li>
-                <li><a href="#blog" className="hover:text-white transition-colors">Blog</a></li>
+              <h4 className="font-semibold mb-6 text-gray-900">Quick Links</h4>
+              <ul className="space-y-3 text-gray-600">
+                <li><a href="#about" className="hover:text-primary transition-colors duration-300">About Us</a></li>
+                <li><a href="#features" className="hover:text-primary transition-colors duration-300">Features</a></li>
+                <li><a href="#blog" className="hover:text-primary transition-colors duration-300">Blog</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-bold mb-4">Resources</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><Link href="/faq" className="hover:text-white transition-colors">FAQ</Link></li>
-                <li><Link href="/support" className="hover:text-white transition-colors">Support</Link></li>
+              <h4 className="font-semibold mb-6 text-gray-900">Resources</h4>
+              <ul className="space-y-3 text-gray-600">
+                <li><Link href="/faq" className="hover:text-primary transition-colors duration-300">FAQ</Link></li>
+                <li><Link href="/support" className="hover:text-primary transition-colors duration-300">Support</Link></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-bold mb-4">Legal</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
-                <li><Link href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
+              <h4 className="font-semibold mb-6 text-gray-900">Legal</h4>
+              <ul className="space-y-3 text-gray-600">
+                <li><Link href="/privacy-policy" className="hover:text-primary transition-colors duration-300">Privacy Policy</Link></li>
+                <li><Link href="/terms-of-service" className="hover:text-primary transition-colors duration-300">Terms of Service</Link></li>
+                <li><a href="#" className="hover:text-primary transition-colors duration-300">Contact</a></li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
+          <div className="border-t border-gray-300 pt-10 text-center text-gray-500">
             <p>© 2026 MilegaJob. All rights reserved. Your one-stop solution for job seeking.</p>
           </div>
         </div>
