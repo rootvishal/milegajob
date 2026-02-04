@@ -66,14 +66,12 @@ export default function ExplorePage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-blue-50 to-amber-50">
-
-
       {/* Search Section */}
       <section className="relative bg-cover bg-center bg-no-repeat text-white py-16" style={{backgroundImage: "url('/baground2.png')"}}>
         <div className="absolute inset-0 bg-blue-900/35"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           <h2 className="text-5xl font-bold mb-8 text-white" style={{fontFamily: 'Arial, sans-serif', letterSpacing: '0.5px'}}>Find Your Next Opportunity</h2>
-          
+
           {/* Search Bar */}
           <div className="relative mb-8">
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />

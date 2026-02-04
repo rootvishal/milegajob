@@ -1,6 +1,8 @@
 'use client';
 
+import { useMemo } from 'react';
 import { Star, ExternalLink } from 'lucide-react';
+import Script from 'next/script';
 
 interface JobCardProps {
   id: number;
@@ -13,6 +15,15 @@ interface JobCardProps {
 }
 
 export default function JobCard({ id, name, category, url, description, rating = 4.5, reviews = 128 }: JobCardProps) {
+  // Calculate dates using useMemo to avoid impure function calls
+  const { currentDate, validThroughDate } = useMemo(() => {
+    const now = new Date();
+    return {
+      currentDate: now.toISOString().split('T')[0],
+      validThroughDate: new Date(now.getTime() + 365 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]
+    };
+  }, []);
+
   const getCategoryColor = (category: string) => {
     switch (category) {
       case 'Freshers':
@@ -92,6 +103,61 @@ export default function JobCard({ id, name, category, url, description, rating =
         >
           Visit Portal <ExternalLink size={16} />
         </a>
+
+        {/* Structured Data for SEO and GEO */}
+        <Script
+          id={`job-portal-${id}-structured-data`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "JobPosting",
+              "title": name,
+              "description": description,
+              "hiringOrganization": {
+                "@type": "Organization",
+                "name": name,
+                "url": url,
+                "logo": `https://milegajob.com/logo1.png`
+              },
+              "jobLocation": {
+                "@type": "Place",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressCountry": "IN",
+                  "addressRegion": "India"
+                }
+              },
+              "employmentType": category === 'Internships' ? 'INTERN' : category === 'Freshers' ? 'ENTRY_LEVEL' : 'FULL_TIME',
+              "industry": "Job Search",
+              "datePosted": currentDate,
+              "validThrough": validThroughDate,
+              "jobLocationType": category === 'Remote & AI/Tech' ? 'TELECOMMUTE' : 'ONSITE',
+              "baseSalary": {
+                "@type": "MonetaryAmount",
+                "currency": "INR",
+                "value": {
+                  "@type": "QuantitativeValue",
+                  "minValue": category === 'Freshers' ? 15000 : category === 'Experienced' ? 50000 : 10000,
+                  "maxValue": category === 'Freshers' ? 50000 : category === 'Experienced' ? 200000 : 30000,
+                  "unitText": "MONTH"
+                }
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": rating,
+                "reviewCount": reviews,
+                "bestRating": 5,
+                "worstRating": 1
+              },
+              "applicationContact": {
+                "@type": "ContactPoint",
+                "url": url,
+                "contactType": "technical support"
+              }
+            })
+          }}
+        />
       </div>
     </div>
   );
