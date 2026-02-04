@@ -20,19 +20,19 @@ export default function Support() {
       icon: Mail,
       title: 'Email',
       description: 'Send us an email and we will respond within 24 hours',
-      details: 'support@milegajob.com'
+      details: 'support@milegajob.in'
     },
     {
       icon: Phone,
       title: 'Phone',
       description: 'Call us during business hours for immediate support',
-      details: '+91 (555) 123-4567'
+      details: '+91 9405280071'
     },
     {
       icon: MapPin,
       title: 'Office',
       description: 'Visit us at our headquarters',
-      details: 'New Delhi, India'
+      details: 'Pune ,Maharashtra, India'
     }
   ];
 
