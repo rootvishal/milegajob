@@ -135,92 +135,109 @@ export default function ExplorePage() {
         {/* Job Cards Grid */}
         {filteredJobs.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-            {filteredJobs.map(portal => (
-              <div
-                key={portal.id}
-                className="bg-white rounded-xl border border-gray-200 hover:border-purple-400 hover:shadow-xl transition-all duration-300 overflow-hidden group"
-              >
-                {/* Header with Icon and Category Badge */}
-                <div className="bg-gradient-to-r from-blue-50 to-amber-50 p-6 border-b border-gray-100">
-                  <div className="flex justify-between items-start mb-3">
-                    {portal.logo ? (
-                      <img
-                        src={portal.logo}
-                        alt={`${portal.name} logo`}
-                        className="w-16 h-16 object-contain"
-                        onError={(e) => {
-                          e.currentTarget.style.display = 'none';
-                          e.currentTarget.nextElementSibling?.classList.remove('hidden');
-                        }}
-                      />
-                    ) : null}
-                    <div className={`text-5xl ${portal.logo ? 'hidden' : ''}`}>{portal.icon}</div>
-                    <div className="flex items-center gap-2">
-                      {user && (
-                        <button
-                          type="button"
-                          onClick={() => (isFavorited(portal.id) ? removeFavorite(portal.id) : addFavorite(portal.id))}
-                          className="p-1.5 rounded-full hover:bg-white/60 transition-colors"
-                          aria-label={isFavorited(portal.id) ? 'Remove from favorites' : 'Add to favorites'}
-                        >
-                          <Star
-                            size={20}
-                            className={isFavorited(portal.id) ? 'fill-amber-500 text-amber-500' : 'text-gray-400'}
-                          />
-                        </button>
-                      )}
-                      <span className="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-full">
-                        {portal.category.split(' & ')[0]}
-                      </span>
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">{portal.name}</h3>
-                  <p className="text-sm text-gray-600 line-clamp-2">{portal.description}</p>
-                </div>
+            {filteredJobs.map(portal => {
+              const getCategoryColor = (category: string) => {
+                switch (category.split(' & ')[0]) {
+                  case 'Freshers':
+                    return 'bg-blue-500';
+                  case 'Experienced':
+                    return 'bg-orange-500';
+                  case 'Internships':
+                    return 'bg-green-500';
+                  case 'Government':
+                    return 'bg-purple-500';
+                  default:
+                    return 'bg-gray-500';
+                }
+              };
 
-                {/* Content */}
-                <div className="p-6">
-                  {/* Rating */}
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="flex gap-1">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          size={16}
-                          className={i < Math.floor(portal.rating) ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}
+              return (
+                <div
+                  key={portal.id}
+                  className="animated-gradient-bg rounded-xl border border-transparent hover:shadow-2xl hover:scale-105 transition-all duration-300 overflow-hidden group transform"
+                >
+                  {/* Header with Icon and Category Badge */}
+                  <div className="p-6 border-b border-white border-opacity-20">
+                    <div className="flex justify-between items-start mb-3">
+                      {portal.logo ? (
+                        <img
+                          src={portal.logo}
+                          alt={`${portal.name} logo`}
+                          className="w-16 h-16 object-contain"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                          }}
                         />
-                      ))}
+                      ) : null}
+                      <div className={`text-5xl ${portal.logo ? 'hidden' : ''}`}>{portal.icon}</div>
+                      <div className="flex items-center gap-2">
+                        {user && (
+                          <button
+                            type="button"
+                            onClick={() => (isFavorited(portal.id) ? removeFavorite(portal.id) : addFavorite(portal.id))}
+                            className="p-1.5 rounded-full hover:bg-white hover:bg-opacity-20 transition-colors"
+                            aria-label={isFavorited(portal.id) ? 'Remove from favorites' : 'Add to favorites'}
+                          >
+                            <Star
+                              size={20}
+                              className={isFavorited(portal.id) ? 'fill-amber-500 text-amber-500' : 'text-white text-opacity-70'}
+                            />
+                          </button>
+                        )}
+                        <span className={`px-3 py-1 text-white text-xs font-bold rounded-full ${getCategoryColor(portal.category)}`}>
+                          {portal.category.split(' & ')[0]}
+                        </span>
+                      </div>
                     </div>
-                    <span className="text-sm font-semibold text-gray-700">{portal.rating.toFixed(1)}</span>
+                    <h3 className="text-xl font-bold text-white mb-1">{portal.name}</h3>
+                    <p className="text-sm text-white text-opacity-80 line-clamp-2">{portal.description}</p>
                   </div>
 
-                  {/* Specialization Badge */}
-                  {portal.specialization && (
-                    <div className="mb-4">
-                      <p className="text-xs text-gray-600 font-semibold mb-1">SPECIALIZATION:</p>
-                      <p className="text-sm text-orange-600 font-semibold">{portal.specialization}</p>
+                  {/* Content */}
+                  <div className="p-6">
+                    {/* Rating */}
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className="flex gap-1">
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            size={16}
+                            className={i < Math.floor(portal.rating) ? 'fill-yellow-400 text-yellow-400' : 'text-white text-opacity-50'}
+                          />
+                        ))}
+                      </div>
+                      <span className="text-sm font-semibold text-white">{portal.rating.toFixed(1)}</span>
                     </div>
-                  )}
 
-                  {/* Built For */}
-                  <div className="mb-6 bg-gray-50 rounded-lg p-3 border border-gray-200">
-                    <p className="text-xs text-gray-600 font-semibold mb-1">BUILT FOR:</p>
-                    <p className="text-sm text-gray-700">{portal.builtFor}</p>
+                    {/* Specialization Badge */}
+                    {portal.specialization && (
+                      <div className="mb-4">
+                        <p className="text-xs text-white text-opacity-70 font-semibold mb-1">SPECIALIZATION:</p>
+                        <p className="text-sm text-orange-300 font-semibold">{portal.specialization}</p>
+                      </div>
+                    )}
+
+                    {/* Built For */}
+                    <div className="mb-6 bg-blue-500 bg-opacity-30 rounded-lg p-3 border border-blue-400 border-opacity-40">
+                      <p className="text-xs text-white font-semibold mb-1">BUILT FOR:</p>
+                      <p className="text-sm text-white">{portal.builtFor}</p>
+                    </div>
+
+                    {/* CTA Button */}
+                    <a
+                      href={portal.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-white text-black font-semibold rounded-lg hover:bg-gray-100 hover:shadow-2xl hover:scale-110 transition-all duration-300 group transform"
+                    >
+                      <span>Visit Portal</span>
+                      <ExternalLink size={18} className="group-hover:translate-x-1 transition-transform" />
+                    </a>
                   </div>
-
-                  {/* CTA Button */}
-                  <a
-                    href={portal.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-900 to-orange-600 text-white font-semibold rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-300 group"
-                  >
-                    <span>Visit Portal</span>
-                    <ExternalLink size={18} className="group-hover:translate-x-1 transition-transform" />
-                  </a>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         ) : (
           <div className="text-center py-16">

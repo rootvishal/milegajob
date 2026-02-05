@@ -15,28 +15,31 @@ interface JobCardProps {
   logo?: string;
 }
 
-export default function JobCard({ id, name, category, url, description, rating = 4.5, reviews = 128, logo }: JobCardProps) {
-  // Calculate dates using useMemo to avoid impure function calls
-  const { currentDate, validThroughDate } = useMemo(() => {
+export default function JobCard({ id, name, category, url, description, rating = 4.5, reviews, logo }: JobCardProps) {
+  // Generate random reviews if not provided and calculate dates using useMemo to avoid impure function calls
+  const { randomReviews, currentDate, validThroughDate } = useMemo(() => {
     const now = new Date();
+    // Generate pseudo-random number based on id for consistency
+    const pseudoRandom = (id * 9301 + 49297) % 233280 / 233280;
     return {
+      randomReviews: reviews || Math.floor(pseudoRandom * 450) + 50,
       currentDate: now.toISOString().split('T')[0],
       validThroughDate: new Date(now.getTime() + 365 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]
     };
-  }, []);
+  }, [reviews, id]);
 
   const getCategoryColor = (category: string) => {
     switch (category) {
       case 'Freshers':
-        return 'bg-blue-100 text-blue-900';
+        return 'bg-blue-500';
       case 'Experienced':
-        return 'bg-orange-100 text-orange-700';
+        return 'bg-orange-500';
       case 'Internships':
-        return 'bg-green-100 text-green-700';
+        return 'bg-green-500';
       case 'Government':
-        return 'bg-orange-100 text-orange-700';
+        return 'bg-purple-500';
       default:
-        return 'bg-gray-100 text-gray-700';
+        return 'bg-gray-500';
     }
   };
 
@@ -66,7 +69,7 @@ export default function JobCard({ id, name, category, url, description, rating =
       </div>
 
       {/* Card content */}
-      <div className="relative h-full bg-white rounded-xl p-6 border border-gray-200 group-hover:border-transparent transition-all duration-300 shadow-md group-hover:shadow-xl">
+      <div className="relative h-full animated-gradient-bg rounded-xl p-6 border border-transparent transition-all duration-300 shadow-md group-hover:shadow-2xl group-hover:scale-105 transform">
         <div className="flex justify-between items-start mb-4">
           <div className="flex items-center gap-3 flex-1">
             {logo ? (
@@ -82,8 +85,8 @@ export default function JobCard({ id, name, category, url, description, rating =
             ) : null}
             <div className={`text-4xl ${logo ? 'hidden' : ''}`}>{getPortalLogo(name)}</div>
             <div className="flex-1">
-              <h3 className="text-lg font-bold text-gray-900 line-clamp-2">{name}</h3>
-              <span className={`inline-block px-2 py-1 rounded-full text-xs font-semibold mt-1 ${getCategoryColor(category)}`}>
+              <h3 className="text-lg font-bold text-white line-clamp-2">{name}</h3>
+              <span className={`inline-block px-2 py-1 rounded-full text-xs font-semibold mt-1 text-white ${getCategoryColor(category)}`}>
                 {category}
               </span>
             </div>
@@ -97,19 +100,19 @@ export default function JobCard({ id, name, category, url, description, rating =
               <Star
                 key={i}
                 size={16}
-                className={`${i < Math.floor(rating) ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`}
+                className={`${i < Math.floor(rating) ? 'fill-yellow-400 text-yellow-400' : 'text-white text-opacity-50'}`}
               />
             ))}
           </div>
-          <span className="text-sm font-semibold text-gray-700">{rating}</span>
-          <span className="text-xs text-gray-500">({reviews} reviews)</span>
+          <span className="text-sm font-semibold text-white">{rating}</span>
+          <span className="text-xs text-white text-opacity-80">({randomReviews} reviews)</span>
         </div>
 
-        <p className="text-gray-600 text-sm mb-6 line-clamp-3">{description}</p>
+        <p className="text-white text-opacity-90 text-sm mb-6 line-clamp-3">{description}</p>
 
         <button
           onClick={() => window.open(url, '_blank', 'noopener,noreferrer')}
-          className="btn-primary w-full inline-flex items-center justify-center gap-2 mt-4"
+          className="bg-white text-black font-semibold py-3 px-6 rounded-lg w-full inline-flex items-center justify-center gap-2 mt-4 hover:bg-gray-100 hover:shadow-2xl hover:scale-110 transition-all duration-300 transform"
         >
           Visit Portal <ExternalLink size={16} />
         </button>
@@ -156,7 +159,7 @@ export default function JobCard({ id, name, category, url, description, rating =
               "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": rating,
-                "reviewCount": reviews,
+                "reviewCount": randomReviews,
                 "bestRating": 5,
                 "worstRating": 1
               },
